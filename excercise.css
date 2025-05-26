@@ -200,6 +200,11 @@ body {
 	border-radius: 100%;
 }
 
+.container {
+    position: relative;
+    top: 100px;
+    left: -100px;  /* 전체를 왼쪽으로 200px */
+}
 
 	/* uncomment for css transitions */
 	/* transition: all 400ms ease; */
