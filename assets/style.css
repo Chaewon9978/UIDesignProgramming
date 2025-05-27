@@ -1,3 +1,8 @@
+@font-face {
+	font-family: "TINY";
+	src: url("TINY5x3GX.ttf");
+}
+
 * {
 	margin:  0px;
 	padding:  0px;
@@ -7,16 +12,16 @@
 /* adjusting fonts */
 
 body {
-	font-family: -apple-system, BlinkMacSystemFont, helvetica, arial, sans-serif;
-	color: darkblue;
+	font-family: Perpetua, Baskerville, Big Caslon, Palatino Linotype, Palatino, URW Palladio L, Nimbus Roman No9 L, serif;
+	color: purple;
 	transition: background 500ms ease;
-	background-color: ivory;
+	background-color: honeydew;
 }
 
 span {
-	text-shadow: 0px 0px 10px lightblue;
-	border: 1.5px dotted lightblue;
+	text-decoration: underline dotted navy;
 	border-radius: 2px;
+	text-shadow: 0px 0px 10px lavender;
 }
 
 p, li {
@@ -31,7 +36,14 @@ p, li {
 }
 
 h1 {
+	font-family: 'TINY';
+	font-variation-settings: "wght" 40;
+	transition: font-variation-settings 1.3s ease;
 	margin-bottom:  60px;
+}
+
+h1: hover {
+  font-variation-settings: "wght" 200;
 }
 
 p {
