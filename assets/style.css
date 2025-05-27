@@ -9,13 +9,46 @@
 	box-sizing: border-box;
 }
 
-/* adjusting fonts */
+
+/* 배경 관련*/
 
 body {
 	font-family: Perpetua, Baskerville, Big Caslon, Palatino Linotype, Palatino, URW Palladio L, Nimbus Roman No9 L, serif;
 	color: purple;
+	text-shadow: 0px 0px 2px lightcyan;
 	transition: background 500ms ease;
 	background-color: honeydew;
+}
+
+body.dark {
+  background-color: #32353b;
+  color: palegreen;
+}
+
+.bg-image {
+	position: absolute;
+	width: 200px;
+	z-index: -1;         /* 다른 콘텐츠 뒤로 */
+	pointer-events: none; /* 클릭 방지 */
+}
+
+#atom {
+	top: 10%;
+	right: 70%;
+	width: 25%;
+	rotate: 20deg;
+}
+
+#goldfish {
+	top: 60%;
+	right: 45%;
+	width: 20%;
+}
+
+#patmat {
+	top: 35%;
+	right: 10%;
+	width: 30%;
 }
 
 span {
@@ -31,19 +64,20 @@ p, li {
 
 /* adjusting spacing */
 
-#left-column {
-	padding: 20px;
-}
 
 h1 {
 	font-family: 'TINY';
+	font-size: 5em;
+	font-color: inherit;
 	font-variation-settings: "wght" 40;
-	transition: font-variation-settings 1.3s ease;
+	transition: font-variation-settings 0.3s ease;
 	margin-bottom:  60px;
+	text-align: center;
 }
 
-h1: hover {
-  font-variation-settings: "wght" 200;
+h1:hover {
+	text-shadow: 0px 0px 5px blue;
+	font-variation-settings: "wght" 200;
 }
 
 p {
@@ -62,6 +96,8 @@ img {
 	position: fixed;
 	right: 10px;
 	bottom: 10px;
+	width: 120px;
+	height: auto;
 }
 
 .emoji-cell {
@@ -117,12 +153,11 @@ body {
 .scroll {
 	padding:  20px;
 	overflow: auto;
-	height: 100vh;
 }
 
 #left-column {
-	text-aligh: center;
-}
+    padding: 60px 100px 20px 100px;
+	display: grid;
 
 #right-column {
 	text-align: right;
