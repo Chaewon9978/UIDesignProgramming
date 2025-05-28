@@ -22,9 +22,35 @@ html, body {
 	padding: 0;
 }
 
+body {
+	font-family: monospace;
+	color: purple;
+	transition: background 500ms ease;
+	background-color: honeydew;
+}
+
+body.dark {
+  background-color: #32353b;
+  color: palegreen;
+}
+
+
+/* grid */
 div.grid {
 	height: 100%;
 	widows: auto;
 	display: grid;
 	grid-template-columns: 1fr 3fr 1fr;
+}
+
+div#left-column {
+	display: flex;
+	flex-direction: column-reverse;
+}
+
+#left-bottom {
+	color: #cccccc;
+	
+	text-align: left;
+	width: ;
 }
