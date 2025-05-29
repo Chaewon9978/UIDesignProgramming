@@ -5,8 +5,8 @@
 }
 
 * {
-	margin:  10px;
-	padding:  10px;
+	margin:  5px;
+	padding:  5px;
 	box-sizing: border-box;
 }
 
@@ -23,7 +23,7 @@ html, body {
 }
 
 body {
-	font-family: monospace;
+	font-family: Palatino, Big Caslon, Baskerville, serif ;
 	color: purple;
 	transition: background 500ms ease;
 	background-color: honeydew;
@@ -48,9 +48,30 @@ div#left-column {
 	flex-direction: column-reverse;
 }
 
-#left-bottom {
+/*left column*/
+.left-bottom {
+	margin-bottom: 15px;
+	font-family: monospace;
 	color: #cccccc;
-	
 	text-align: left;
-	width: ;
+}
+
+/*main column*/
+h1 {
+	font-family: 'TINY';
+	font-size: 5em;
+	font-color: inherit;
+	font-variation-settings: "wght" 40;
+	transition: font-variation-settings 0.3s ease;
+	margin: 60px 5px 30px 5px;
+	text-align: center;
+}
+
+h1:hover {
+	text-shadow: 0px 0px 5px blue;
+	font-variation-settings: "wght" 200;
+}
+
+.desc {
+	
 }
