@@ -72,6 +72,12 @@ h1:hover {
 	font-variation-settings: "wght" 200;
 }
 
-.desc {
-	
+.paragraph {
+	text-align: center;
+
+#desc {
+	font-family: monospace;
+	font-size: 0.9em;
+	color: #cccccc;
+	text-align: right;
 }
