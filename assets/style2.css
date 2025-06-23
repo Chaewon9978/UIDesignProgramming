@@ -81,3 +81,9 @@ h1:hover {
 	color: #cccccc;
 	text-align: right;
 }
+
+/*right column*/
+div#right-column {
+	display: flex;
+	text-align: right;
+}
