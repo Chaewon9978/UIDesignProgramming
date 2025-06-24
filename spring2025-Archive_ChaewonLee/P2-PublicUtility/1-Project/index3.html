@@ -1,0 +1,168 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Tomatic Timer</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="./assets/style3.css">
+
+<body>
+    <h1>Tomatic timer</h1>
+    <div class="clock-container">
+      <img src="p2_assets/clock_bg.svg" class="clock-bg"/>
+      <img src="p2_assets/hour_hand.svg" class="hour-hand" id="hourHand"/>
+      <img src="p2_assets/min_hand.svg" class="min-hand" id="minHand"/>
+      <div style="position: absolute; top: 50%; left: 50%; width: 32px; height: 32px; background: #ef391b; border-radius: 50%; transform: translate(-50%, -50%); z-index: 10;"></div>
+    </div>
+    </div>
+
+     <div class="controls">
+        <div class="time-inputs">
+            <div class="time-group">
+                <label for="startTime">Start</label>
+                <input type="time" id="startTime" value="08:40">
+            </div>
+            <div class="time-group">
+                <label for="endTime">End</label>
+                <input type="time" id="endTime" value="10:00">
+            </div>
+        </div>
+        <div class="button-group">
+          <button id="startButton" onclick="startTimer()">Start</button>
+          <button id="stopButton" onclick="stopTimer()" disabled>Stop</button>
+          <button id="resetButton" onclick="resetTimer()">Reset</button>
+        </div>
+        
+        <div class="current-time" id="currentTime"></div>
+        <div class="status" id="status"></div>
+        
+    <script>
+        let timerInterval;
+        let isRunning = false;
+        let currentTime = new Date();
+        let startTime, endTime;
+
+        function updateClockDisplay(time) {
+            const hours = time.getHours() % 12;
+            const minutes = time.getMinutes();
+            
+            // 시침 각도 계산 (30도 * 시간 + 0.5도 * 분)
+            const hourAngle = (hours * 30) + (minutes * 0.5);
+            
+            // 분침 각도 계산 (6도 * 분)
+            const minuteAngle = minutes * 6;
+            
+            // 시침과 분침 회전
+            document.getElementById('hourHand').style.transform = 
+                `translate(-50%, -100%) rotate(${hourAngle}deg)`;
+            document.getElementById('minHand').style.transform = 
+                `translate(-50%, -100%) rotate(${minuteAngle}deg)`;
+        }
+
+        function formatTime(date) {
+            return date.toLocaleTimeString('en-US', { 
+                hour: '2-digit', 
+                minute: '2-digit', 
+                second: '2-digit' 
+            });
+        }
+
+        function startTimer() {
+            const startTimeInput = document.getElementById('startTime').value;
+            const endTimeInput = document.getElementById('endTime').value;
+            
+            if (!startTimeInput || !endTimeInput) {
+                alert('Please enter both start and end times.');
+                return;
+            }
+            
+            // 오늘 날짜로 시간 설정
+            const today = new Date();
+            startTime = new Date(today.getFullYear(), today.getMonth(), today.getDate(), 
+                parseInt(startTimeInput.split(':')[0]), parseInt(startTimeInput.split(':')[1]));
+            endTime = new Date(today.getFullYear(), today.getMonth(), today.getDate(), 
+                parseInt(endTimeInput.split(':')[0]), parseInt(endTimeInput.split(':')[1]));
+            
+            // 종료 시간이 시작 시간보다 이른 경우 다음날로 설정
+            if (endTime <= startTime) {
+                endTime.setDate(endTime.getDate() + 1);
+            }
+            
+            // 현재 시간을 시작 시간으로 설정
+            currentTime = new Date(startTime);
+            
+            isRunning = true;
+            document.getElementById('startButton').disabled = true;
+            document.getElementById('stopButton').disabled = false;
+            document.getElementById('startTime').disabled = true;
+            document.getElementById('endTime').disabled = true;
+            
+            updateClockDisplay(currentTime);
+            updateStatus();
+            
+            // 1초마다 시간 업데이트
+            timerInterval = setInterval(() => {
+                currentTime.setSeconds(currentTime.getSeconds() + 1);
+                updateClockDisplay(currentTime);
+                updateStatus();
+                
+                // 종료 시간 도달 시 타이머 정지
+                if (currentTime >= endTime) {
+                    stopTimer();
+                    document.getElementById('status').textContent = "Time's up!";
+                    document.getElementById('status').className = 'status completed';
+                }
+            }, 1000);
+        }
+
+        function stopTimer() {
+            isRunning = false;
+            clearInterval(timerInterval);
+            
+            document.getElementById('startButton').disabled = false;
+            document.getElementById('stopButton').disabled = true;
+            document.getElementById('startTime').disabled = false;
+            document.getElementById('endTime').disabled = false;
+            
+            if (currentTime >= endTime) {
+                document.getElementById('status').textContent = "Time's up!";
+                document.getElementById('status').className = 'status completed';
+            } else {
+                document.getElementById('status').textContent = "Time's stopped";
+                document.getElementById('status').className = 'status';
+            }
+        }
+
+        function resetTimer() {
+            stopTimer();
+            currentTime = new Date();
+            updateClockDisplay(currentTime);
+            document.getElementById('status').textContent = '';
+            document.getElementById('status').className = 'status';
+            document.getElementById('currentTime').textContent = '';
+        }
+
+        function updateStatus() {
+            if (isRunning) {
+                const remaining = Math.max(0, endTime - currentTime);
+                const remainingHours = Math.floor(remaining / (1000 * 60 * 60));
+                const remainingMinutes = Math.floor((remaining % (1000 * 60 * 60)) / (1000 * 60));
+                const remainingSeconds = Math.floor((remaining % (1000 * 60)) / 1000);
+                
+                document.getElementById('status').textContent = 
+                    `Remaining time: ${remainingHours}:${remainingMinutes}:${remainingSeconds}`;
+                document.getElementById('status').className = 'status running';
+            }
+            
+            document.getElementById('currentTime').textContent = 
+                `Current time: ${formatTime(currentTime)}`;
+        }
+
+        // 초기 시계 표시 (현재 시간)
+        updateClockDisplay(currentTime);
+        document.getElementById('currentTime').textContent = 
+            `Current time: ${formatTime(currentTime)}`;
+    </script>
+
+</body>
+</html>

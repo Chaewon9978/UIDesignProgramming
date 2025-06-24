@@ -1,23 +1,33 @@
+/* font */
 @font-face {
 	font-family: "TINY";
 	src: url("TINY5x3GX.ttf");
 }
 
 * {
-	margin:  0px;
-	padding:  0px;
+	margin:  5px;
+	padding:  5px;
 	box-sizing: border-box;
 }
 
 
-/* 배경 관련*/
+/* 전체 화면
+div {
+	border: 1px solid blue;
+} */
+
+html, body {
+	height: 100%;
+	margin: 0;
+	padding: 0;
+}
 
 body {
-	font-family: Perpetua, Baskerville, Big Caslon, Palatino Linotype, Palatino, URW Palladio L, Nimbus Roman No9 L, serif;
+	font-family: Palatino, Big Caslon, Baskerville, serif ;
 	color: purple;
-	text-shadow: 0px 0px 2px lightcyan;
 	transition: background 500ms ease;
 	background-color: honeydew;
+	position: relative;
 }
 
 body.dark {
@@ -25,53 +35,43 @@ body.dark {
   color: palegreen;
 }
 
-.bg-image {
-	position: absolute;
-	width: 200px;
-	z-index: -1;         /* 다른 콘텐츠 뒤로 */
-	pointer-events: none; /* 클릭 방지 */
+a {
+	text-decoration: underline;
+	text-decoration-style: dotted;
+	color: orange;
 }
 
-#atom {
-	top: 10%;
-	right: 70%;
-	width: 25%;
-	rotate: 20deg;
+/* grid */
+.grid {
+	position: relative;
+	height: 100%;
+	width: auto;
+	display: grid;
+	z-index: 10;
+	grid-template-columns: 1fr 3fr 1fr;
 }
 
-#goldfish {
-	top: 60%;
-	right: 45%;
-	width: 20%;
+div#left-column {
+	display: flex;
+	flex-direction: column-reverse;
 }
 
-#patmat {
-	top: 35%;
-	right: 10%;
-	width: 30%;
+/*left column*/
+.left-bottom {
+	margin-bottom: 15px;
+	font-family: monospace;
+	color: #cccccc;
+	text-align: left;
 }
 
-span {
-	text-decoration: underline dotted navy;
-	border-radius: 2px;
-	text-shadow: 0px 0px 10px lavender;
-}
-
-p, li {
-	font-size:  22px;
-	line-height: 30px;
-}
-
-/* adjusting spacing */
-
-
+/*main column*/
 h1 {
 	font-family: 'TINY';
 	font-size: 5em;
-	font-color: inherit;
+	color: inherit;
 	font-variation-settings: "wght" 40;
 	transition: font-variation-settings 0.3s ease;
-	margin-bottom:  60px;
+	margin: 60px 5px 30px 5px;
 	text-align: center;
 }
 
@@ -80,85 +80,60 @@ h1:hover {
 	font-variation-settings: "wght" 200;
 }
 
-p {
-	margin-bottom: 20px;
-}
-ul, ol {
-	margin-left: 20px;
+.paragraph {
+	text-align: center;
 }
 
-img {
-	max-width: 100%;
-	height:  auto;
+#desc {
+	font-family: monospace;
+	font-size: 0.9em;
+	color: #cccccc;
+	text-align: right;
+}
+
+/*right column*/
+div#right-column {
+	display: flex;
+	text-align: right;
+}
+
+.bg-image {
+	position: absolute;
+	width: 200px;
+	z-index: -10;         /* 다른 콘텐츠 뒤로 */
+	pointer-events: none; /* 클릭 방지 */
 }
 
 #key-visual {
 	position: fixed;
+	z-index: -10; 
 	right: 10px;
 	bottom: 10px;
 	width: 120px;
 	height: auto;
 }
 
-.emoji-cell {
-    position: relative;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    background: transparent;
-    border-radius: 4px;
+#atom {
+	position: fixed;
+	z-index: -10; 
+	top: 10%;
+	right: 70%;
+	width: 25%;
+	rotate: 20deg;
 }
 
-.emoji-cell a {
-    display: block;
-    text-decoration: none;
-    color: inherit;
-    font-size: 24px;
-    padding: 5px;
-    border-radius: 8px;
-    transition: all 0.3s ease;
+#goldfish {
+	position: fixed;
+	z-index: -10; 
+	top: 60%;
+	right: 45%;
+	width: 20%;
 }
 
-/* 이모지 하늘색 글로우 */
-.emoji-cell .emoji {
-    filter: drop-shadow(0 0 8px #87ceeb) 
-            drop-shadow(0 0 12px #87ceeb) 
-            drop-shadow(0 0 16px #add8e6);
-    transition: all 0.3s ease;
-}
-
-/* 호버 효과 */
-.emoji-cell:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 12px 24px rgba(135, 206, 235, 0.3),
-                0 6px 12px rgba(135, 206, 235, 0.2);
-}
-
-.emoji-cell:hover .emoji {
-    filter: drop-shadow(0 0 12px #4fc3f7) 
-            drop-shadow(0 0 20px #29b6f6);
-    transform: scale(1.1);
-}
-
-/* uncomment the code below to set the grid */
-
-#grid {
-	display: grid;
-	grid-template-columns: 1fr 200px;
-}
-
-body {
-	overflow: hidden;
-}
-
-.scroll {
-	padding:  20px;
-	overflow: auto;
-}
-
-#left-column {
-    padding: 60px 100px 20px 100px;
-	display: grid;
-
-#right-column {
-	text-align: right;
+#patmat {
+	position: fixed;
+	z-index: -10; 
+	top: 35%;
+	right: 10%;
+	width: 30%;
 }

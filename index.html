@@ -1,4 +1,3 @@
-  
 <!DOCTYPE html>
 <html>
 
@@ -10,64 +9,88 @@
 
 <body>
 
-  <!-- this is where my code is-->
-  <div id="grid">
-    <div id="left-column" class="scroll">  
+    <!-- images -->
+  <img src="images/kanden.webp" class="bg-image" alt="kanden" id="key-visual" />
+  <!-- background images -->
+  <img src="images/atom.png" class="bg-image" alt="atom" id="atom" />
+  <img src="images/goldfish.png" class="bg-image" alt="goldfish" id="goldfish" />
+  <img src="images/patmat.png" class="bg-image" alt="patmat" id="patmat" />
+  
+	<div class="grid">
 
-      <!-- images -->
-      <img src="images/kanden.webp" alt="kanden" id="key-visual" />
-      <!-- background images -->
-      <img src="images/atom.png" class="bg-image" alt="atom" id="atom" />
-      <img src="images/goldfish.png" class="bg-image" alt="goldfish" id="goldfish" />
-      <img src="images/patmat.png" class="bg-image" alt="patmat" id="patmat" />
+		<div id="left-column">
 
+			<div class="left-bottom">
+				<p>Contact me to</p>
+				<p>
+					@odd._ing<br>
+					chaewon9978@snu.ac.kr<br>
+					and always in 49...
+				</p>
+			</div>
 
-      <!-- about me-->
-      <h1>Chaewon Lee</h1>  
-      <p class="desc">is studying Japanese✴</p>
-      <ul>
-        <li>My favorite food is <span>Bún Chả</span></li>
-        <li>My favorite song is <span>kanden-Kenshi Yonezu</span></li>
-        <li>My favorite website is <a href="https://claude.ai">Claude</a></li>
-      </ul>
-      <h3>Chaewon's Netflixlist for the week</h3>
-      <table>
-        <tr>
-          <th>S</th>
-          <th>M</th>
-          <th>T</th>
-          <th>W</th>
-          <th>T</th>
-          <th>F</th>
-          <th>S</th>
-        </tr>
-        <tr>
-          <td class="emoji-cell"><a href="https://www.netflix.com/browse?jbv=81681535" target="_blank" style="display: block; color: inherit;">🍊</a></td>
-          <td class="emoji-cell"><a href="https://www.netflix.com/browse?jbv=81677629" target="_blank" style="display: block; color: inherit;">🩺 </a></td>
-          <td class="emoji-cell"><a href="https://www.netflix.com/browse?jbv=81714753" target="_blank" style="display: block; color: inherit;">🛫</a></td>
-          <td class="emoji-cell"><a href="https://www.netflix.com/browse?jbv=81423571" target="_blank" style="display: block; color: inherit;">🚔</a></td>
-          <td class="emoji-cell"><a href="https://www.netflix.com/browse?jbv=60024788" target="_blank" style="display: block; color: inherit;">☠️</a></td>
-          <td class="emoji-cell"><a href="https://www.netflix.com/browse?jbv=81714729" target="_blank" style="display: block; color: inherit;">🔬</a></td>
-          <td class="emoji-cell"><a href="https://www.netflix.com/browse?jbv=81551819" target="_blank" style="display: block; color: inherit;">💞</a></td>
-        </tr>
-      </table>
-      <button id="darkmode">
+		</div>
+
+		<div id="main-coulmn">
+
+			<div><h1>Chaewon Lee</h1></div>
+			<div class="paragraph">
+				<p>is studying Japanese✴</p>
+				<p id="desc">to go to an exchange student!</p>
+			</div>
+
+			<div>
+				<ul>
+		      <li>My favorite food is <span>Bún Chả</span></li>
+		      <li>My favorite song is <span>kanden-Kenshi Yonezu</span></li>
+		      <li>My favorite website is <a href="https://claude.ai">Claude</a></li>
+	    	</ul>
+	    </div>
+
+	    <div>
+	    	<h3>Chaewon's Netflixlist for the week</h3>
+	      <table>
+	        <tr>
+	          <th>S</th>
+	          <th>M</th>
+	          <th>T</th>
+	          <th>W</th>
+	          <th>T</th>
+	          <th>F</th>
+	          <th>S</th>
+	        </tr>
+	        <tr>
+	          <td class="emoji-cell"><a href="https://www.netflix.com/browse?jbv=81681535" target="_blank" style="display: block; color: inherit;">🍊</a></td>
+	          <td class="emoji-cell"><a href="https://www.netflix.com/browse?jbv=81677629" target="_blank" style="display: block; color: inherit;">🩺 </a></td>
+	          <td class="emoji-cell"><a href="https://www.netflix.com/browse?jbv=81714753" target="_blank" style="display: block; color: inherit;">🛫</a></td>
+	          <td class="emoji-cell"><a href="https://www.netflix.com/browse?jbv=81423571" target="_blank" style="display: block; color: inherit;">🚔</a></td>
+	          <td class="emoji-cell"><a href="https://www.netflix.com/browse?jbv=60024788" target="_blank" style="display: block; color: inherit;">☠️</a></td>
+	          <td class="emoji-cell"><a href="https://www.netflix.com/browse?jbv=81714729" target="_blank" style="display: block; color: inherit;">🔬</a></td>
+	          <td class="emoji-cell"><a href="https://www.netflix.com/browse?jbv=81551819" target="_blank" style="display: block; color: inherit;">💞</a></td>
+	        </tr>
+	      </table>
+	      <button id="darkmode">
         Dark Mode Toggle
-      </button>
-      <script type="text/javascript" src="assets/script.js"></script>
+	      </button>
+	      <script type="text/javascript" src="assets/script.js"></script>
+	    </div>
 
-    </div>
+		</div>
 
-    <!-- add projects -->
-    <div id="right-column" class="scroll">
-      <h2>Exercises</h2>
-      <ul>
+
+		<div id="right-coulmn">
+			<h3>Excercises</h3>
+			<ul>
         <li><a href="ascii_art/exterior-chaewonlee.html">ASCII Town</a></li>
         <li><a href="https://www.figma.com/proto/emMm8C9NedC7hH3e3rIOlO/Chaewon-Lee_P1-prototype?node-id=60-2704&p=f&t=yoZSgQJUF8fDVEC3-0&scaling=min-zoom&content-scaling=fixed&page-id=60%3A2229&starting-point-node-id=60%3A2704&show-proto-sidebar=1">P1-Brolley</a></li>
         <li><a href="https://chaewon9978.github.io/UIDesignProgramming/excercise.html">Coding from life</a></li>
         <li><a href="https://chaewon9978.github.io/UIDesignProgramming/index3.html">P2-Casio Timer</a></li>
       </ul>
-    </div>
-  </div>
+		</div>
+
+	</div>
+
+
+
 </body>
 </html>
