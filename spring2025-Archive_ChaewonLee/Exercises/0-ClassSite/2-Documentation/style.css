@@ -1,0 +1,139 @@
+/* font */
+@font-face {
+	font-family: "TINY";
+	src: url("TINY5x3GX.ttf");
+}
+
+* {
+	margin:  5px;
+	padding:  5px;
+	box-sizing: border-box;
+}
+
+
+/* 전체 화면
+div {
+	border: 1px solid blue;
+} */
+
+html, body {
+	height: 100%;
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	font-family: Palatino, Big Caslon, Baskerville, serif ;
+	color: purple;
+	transition: background 500ms ease;
+	background-color: honeydew;
+	position: relative;
+}
+
+body.dark {
+  background-color: #32353b;
+  color: palegreen;
+}
+
+a {
+	text-decoration: underline;
+	text-decoration-style: dotted;
+	color: orange;
+}
+
+/* grid */
+.grid {
+	position: relative;
+	height: 100%;
+	width: auto;
+	display: grid;
+	z-index: 10;
+	grid-template-columns: 1fr 3fr 1fr;
+}
+
+div#left-column {
+	display: flex;
+	flex-direction: column-reverse;
+}
+
+/*left column*/
+.left-bottom {
+	margin-bottom: 15px;
+	font-family: monospace;
+	color: #cccccc;
+	text-align: left;
+}
+
+/*main column*/
+h1 {
+	font-family: 'TINY';
+	font-size: 5em;
+	color: inherit;
+	font-variation-settings: "wght" 40;
+	transition: font-variation-settings 0.3s ease;
+	margin: 60px 5px 30px 5px;
+	text-align: center;
+}
+
+h1:hover {
+	text-shadow: 0px 0px 5px blue;
+	font-variation-settings: "wght" 200;
+}
+
+.paragraph {
+	text-align: center;
+}
+
+#desc {
+	font-family: monospace;
+	font-size: 0.9em;
+	color: #cccccc;
+	text-align: right;
+}
+
+/*right column*/
+div#right-column {
+	display: flex;
+	text-align: right;
+}
+
+.bg-image {
+	position: absolute;
+	width: 200px;
+	z-index: -10;         /* 다른 콘텐츠 뒤로 */
+	pointer-events: none; /* 클릭 방지 */
+}
+
+#key-visual {
+	position: fixed;
+	z-index: -10; 
+	right: 10px;
+	bottom: 10px;
+	width: 120px;
+	height: auto;
+}
+
+#atom {
+	position: fixed;
+	z-index: -10; 
+	top: 10%;
+	right: 70%;
+	width: 25%;
+	rotate: 20deg;
+}
+
+#goldfish {
+	position: fixed;
+	z-index: -10; 
+	top: 60%;
+	right: 45%;
+	width: 20%;
+}
+
+#patmat {
+	position: fixed;
+	z-index: -10; 
+	top: 35%;
+	right: 10%;
+	width: 30%;
+}
